@@ -127,14 +127,14 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
+  if(numero %3 == 0 && numero %5 == 0){
+    return "fizzbuzz";
+  }
   if(numero %3 == 0){
     return "fizz";
   }
   if(numero %5 == 0){
     return "buzz";
-  }
-  if(numero %3 == 0 && numero %5 == 0){
-    return "fizzbuzz";
   }
   return numero;
   
@@ -195,14 +195,11 @@ function esPrimo(numero) {
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
   // Tu código:
-  const numeros = 100;
-  for (let numero = 1; numero <= numeros; numero++) {
-    if(numero / numero == 0 && numero %1 == 0){
-      return true;
-    }else{
-      return false;
-    }
-    
+
+  if (numero % numero == 0 && numero % 1 == 0) {
+    return true;
+  } else {
+    return false;
   }
 }
 

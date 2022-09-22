@@ -196,11 +196,7 @@ function esPrimo(numero) {
   // Nota: Los números 0 y 1 NO son considerados números primos
   // Tu código:
 
-  if (numero % numero == 0 && numero % 1 == 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return numero % numero == 0 && numero % 1 == 0;
 }
 
 function doWhile(numero) {

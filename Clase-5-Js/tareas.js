@@ -7,15 +7,15 @@ function counter() {
   // ejemplo: const newCounter = counter();
   // newCounter(); // 1
   // newCounter(); // 2
-  const newCounter = counter();
   function counter() {
     let contador = 0;
-
+    
     return function incrementar() {
       contador = contador + 1;
       return contador;
     }
   }
+  const newCounter = counter();
   newCounter();
   newCounter();
 }

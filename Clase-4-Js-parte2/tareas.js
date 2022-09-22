@@ -22,11 +22,9 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
-/*   const nuevo = {
-    objeto,
-    property: ,
-  }
-  return nuevo; */
+
+  objeto[property] = null;
+  return objeto;
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -69,11 +67,11 @@ function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-  if(usuario.email.value){
-    return true;
-  }else{
-    return false;
+  if (usuario.email) {
+    return true
   }
+  return false;
+  
 }
 
 
@@ -83,6 +81,10 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
+  if (objeto[propiedad]){
+    return true
+  }
+  return false;
 }
 
 function verificarPassword(usuario, password) {
@@ -90,13 +92,14 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
+  return usuario.password === password;
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
-  usuario[nuevaPassword] = "nuevagPassword";
+  usuario.password = nuevaPassword;
   return usuario;
 }
 
@@ -132,6 +135,21 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+  let suma = 0;
+
+    for (let index = 0; index < usuario.posts.length; index++) {
+        suma = suma + usuario.posts[index].likes
+    }
+
+    suma = 0
+    for (const elemento of usuario.posts) {
+       suma = suma + elemento.likes
+    }
+
+    suma = usuario.posts.reduce( (total, elemento) => total = total + elemento.likes, 0  )
+   
+    return suma
+
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -144,6 +162,12 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
+  producto.calcularPrecioDescuento = function () {
+    const decuento = producto.precio * producto.porcentajeDeDescuento;
+    const precioConDescuento = producto.precio - decuento;
+    return precioConDescuento;
+  }
+  return producto
 }
 
 // No modificar nada debajo de esta línea
